@@ -12,20 +12,20 @@ const preloadedState = getSerializedData('preloaded_state');
 const store = configureStore(preloadedState);
 
 function renderApp() {
-  ensureReady(routes).then(data =>
-    hydrate(
-      <BrowserRouter>
-        <Provider store={store}>
-          <After data={data} routes={routes} store={store} />
-        </Provider>
-      </BrowserRouter>,
-      document.getElementById('root')
-    )
-  );
+    ensureReady(routes).then((data) =>
+        hydrate(
+            <BrowserRouter>
+                <Provider store={store}>
+                    <After data={data} routes={routes} store={store} />
+                </Provider>
+            </BrowserRouter>,
+            document.getElementById('root')
+        )
+    );
 }
 
 renderApp();
 
 if (module.hot) {
-  module.hot.accept('./routes', renderApp);
+    module.hot.accept('./routes', renderApp);
 }

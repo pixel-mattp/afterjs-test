@@ -9,26 +9,26 @@ const chunks = require(process.env.RAZZLE_CHUNKS_MANIFEST);
 
 const server = express();
 server
-  .disable('x-powered-by')
-  .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
-  .get('/*', async (req, res) => {
-    const store = configureStore();
+    .disable('x-powered-by')
+    .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
+    .get('/*', async (req, res) => {
+        const store = configureStore();
 
-    try {
-      const html = await render({
-        req,
-        res,
-        routes,
-        assets,
-        document: Document,
-        store,
-        chunks
-      });
-      res.send(html);
-    } catch (error) {
-      console.error(error);
-      res.json({ message: error.message, stack: error.stack });
-    }
-  });
+        try {
+            const html = await render({
+                req,
+                res,
+                routes,
+                assets,
+                document: Document,
+                store,
+                chunks,
+            });
+            res.send(html);
+        } catch (error) {
+            console.error(error);
+            res.json({ message: error.message, stack: error.stack });
+        }
+    });
 
 export default server;
