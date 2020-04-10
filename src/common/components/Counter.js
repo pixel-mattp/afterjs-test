@@ -7,7 +7,6 @@ import {
     incrementIfOdd,
     set,
 } from '../store/modules/counter';
-import { DatePicker, message, Alert } from 'antd';
 import Helmet from 'react-helmet';
 import './style.scss';
 
@@ -26,15 +25,6 @@ const Counter = ({ counter, posts }) => {
                 <meta name='description' content={posts[3].title} />
             </Helmet>
             <p className='counter'>
-                <div style={{ marginTop: 20 }}>
-                    <DatePicker onChange={handleChange} />
-                    <Alert
-                        message={`Selected Date: ${
-                            date ? date.format('YYYY-MM-DD') : 'None'
-                        }`}
-                        type='success'
-                    />
-                </div>
                 Clicked: {counter} times{' '}
                 <button onClick={() => dispatch(increment)}>+</button>{' '}
                 <button onClick={() => dispatch(decrement)}>-</button>{' '}
