@@ -11,7 +11,7 @@ import { DatePicker, message, Alert } from 'antd';
 import Helmet from 'react-helmet';
 import './style.scss';
 
-const Counter = ({ counter, posts, mosques }) => {
+const Counter = ({ counter, posts }) => {
     const [date, setData] = React.useState(null);
 
     const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const Counter = ({ counter, posts, mosques }) => {
 
     return (
         <>
-            <Helmet title={mosques[0].name}>
+            <Helmet title={posts[0].title}>
                 <meta name='description' content={posts[3].title} />
             </Helmet>
             <p className='counter'>

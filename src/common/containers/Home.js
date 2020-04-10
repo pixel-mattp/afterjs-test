@@ -20,12 +20,7 @@ Counter.getInitialProps = async ({ store }) => {
     const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
     const json = await res.data;
 
-    const res2 = await axios.get(
-        'http://mosqueapi.stagelab.co.uk/master-mosques'
-    );
-    const mosques = res2.data.data;
-
-    return { posts: json, mosques };
+    return { posts: json };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
